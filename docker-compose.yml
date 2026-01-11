@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  go-backend:
+    build:
+      context: ./go-backend
+      dockerfile: Dockerfile
+    container_name: godevtest-go
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+    volumes:
+      - go-data:/app/data
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  node-backend:
+    build:
+      context: ./node-backend
+      dockerfile: Dockerfile
+    container_name: godevtest-node
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - GO_BACKEND_URL=http://go-backend:8080
+    depends_on:
+      go-backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:3000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  react-frontend:
+    build:
+      context: ./react-frontend
+      dockerfile: Dockerfile
+    container_name: godevtest-react
+    ports:
+      - "5173:80"
+    depends_on:
+      node-backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  go-data:
+    name: godevtest-data
