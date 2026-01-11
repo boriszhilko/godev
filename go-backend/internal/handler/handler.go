@@ -53,6 +53,29 @@ func (h *Handler) Start(port string) {
 	mux := http.NewServeMux()
 	h.RegisterRoutes(mux)
 
+	// Apply middleware chain
+	// Only logging is enabled by default
+
+	// Optional: Enable authentication (bonus feature)
+	// Example usage:
+	// api keys would be taken from the database
+	// validKeys := []string{"secret-key-1", "secret-key-2"}
+	// handler := middleware.Auth(validKeys)(middleware.Logging(mux))
+
+	// Optional: Enable rate limiting (bonus feature)
+	// Example usage:
+	// limiter := middleware.NewRateLimiter(100, 1*time.Minute) // 100 req/min
+	// handler := middleware.RateLimit(limiter)(middleware.Logging(mux))
+
+	// Optional: Enable both auth and rate limiting
+	// Example usage:
+	// validKeys := []string{"secret-key-1"}
+	// limiter := middleware.NewRateLimiter(100, 1*time.Minute)
+	// handler := middleware.Auth(validKeys)(
+	//     middleware.RateLimit(limiter)(
+	//         middleware.Logging(mux)))
+
+	// Current configuration: Only logging middleware
 	handler := middleware.Logging(mux)
 
 	log.Printf("Go backend server starting on http://localhost:%s", port)
