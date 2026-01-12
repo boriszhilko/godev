@@ -1,6 +1,7 @@
 # IDE files
 .cursorrules
 .cursor/
+.idea/
 
 # macOS
 .DS_Store
@@ -15,6 +16,8 @@ TEST_IMPLEMENTATION_SUMMARY.md
 TEST_RESULTS.md
 TESTING_GUIDE.md
 GIT_CLEANUP_INSTRUCTIONS.md
+VIDEO_PRESENTATION_SCRIPT.md
+FINAL_TEST_REPORT.md
 
 # Node modules
 node_modules/

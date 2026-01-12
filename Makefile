@@ -169,10 +169,10 @@ test-create-user:
 	@echo "Creating test user..."
 	curl -s -X POST http://localhost:8080/api/users \
 		-H "Content-Type: application/json" \
-		-d '{"name":"Test User","email":"test@example.com","role":"developer"}' | jq .
+		-d '{"name":"Alice Chen","email":"alice@demo.com","role":"engineer"}' | jq .
 
 test-create-task:
 	@echo "Creating test task..."
 	curl -s -X POST http://localhost:8080/api/tasks \
 		-H "Content-Type: application/json" \
-		-d '{"title":"Test Task","status":"pending","userId":1}' | jq .
+		-d '{"title":"Setup CI/CD pipeline","status":"pending","userId":1}' | jq .

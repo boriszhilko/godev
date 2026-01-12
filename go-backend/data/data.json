@@ -1,0 +1,42 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "role": "developer"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "role": "designer"
+    },
+    {
+      "id": 3,
+      "name": "Bob Johnson",
+      "email": "bob@example.com",
+      "role": "manager"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Implement authentication",
+      "status": "pending",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "title": "Design user interface",
+      "status": "in-progress",
+      "userId": 2
+    },
+    {
+      "id": 3,
+      "title": "Review code changes",
+      "status": "completed",
+      "userId": 3
+    }
+  ]
+}
