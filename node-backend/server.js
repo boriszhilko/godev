@@ -3,14 +3,12 @@ const cors = require('cors');
 const http = require('http');
 
 const app = express();
-const session = require('express-sessions-id')
 const PORT = process.env.PORT || 3000;
 const GO_BACKEND_URL = process.env.GO_BACKEND_URL || 'http://localhost:8080';
 
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(session());
 
 // Helper function to make HTTP requests to Go backend
 function makeRequest(path, options = {}) {

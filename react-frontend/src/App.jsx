@@ -70,7 +70,9 @@ function App() {
     setLoading(true)
     setError(null)
     try {
-      const tasksData = await getTasks(status, '')
+      // Preserve the selected user filter when applying status filter
+      const userId = selectedUserId ? selectedUserId.toString() : ''
+      const tasksData = await getTasks(status, userId)
       setTasks(tasksData.tasks || [])
     } catch (err) {
       setError(err.message || 'Failed to filter tasks')

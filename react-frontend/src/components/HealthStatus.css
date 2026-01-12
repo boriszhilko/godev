@@ -3,9 +3,6 @@
   padding: 15px 20px;
   border-radius: 10px;
   margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   font-weight: 500;
 }
@@ -25,6 +22,34 @@
   color: #e65100;
 }
 
+.health-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.health-row:last-child {
+  margin-bottom: 0;
+}
+
 .status-indicator {
   font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.health-checks {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.check-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }

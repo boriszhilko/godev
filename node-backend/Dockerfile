@@ -3,8 +3,8 @@ FROM node:20-alpine
 WORKDIR /app
 
 # Copy package files first for layer caching
-COPY package*.json ./
-RUN npm ci --only=production
+COPY package.json ./
+RUN npm install --omit=dev
 
 # Copy source code
 COPY . .
